@@ -34,6 +34,7 @@
             this.lblStore = new System.Windows.Forms.Label();
             this.tbStore = new System.Windows.Forms.TextBox();
             this.lbDebug = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(239, 35);
+            this.btnCheck.Location = new System.Drawing.Point(225, 33);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(103, 33);
             this.btnCheck.TabIndex = 2;
@@ -89,11 +90,22 @@
             this.lbDebug.Size = new System.Drawing.Size(518, 340);
             this.lbDebug.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(237, 454);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 30);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Save Log";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 459);
+            this.ClientSize = new System.Drawing.Size(542, 496);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lbDebug);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -115,6 +127,7 @@
         private System.Windows.Forms.Label lblStore;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.ListBox lbDebug;
+        private System.Windows.Forms.Button button1;
     }
 }
 
