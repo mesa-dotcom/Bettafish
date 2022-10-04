@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net.NetworkInformation;
+using System.IO;
 
 namespace Bettafish
 {
@@ -44,31 +45,60 @@ namespace Bettafish
         private async Task checking(string storeId)
         {
             AddListItemText("<==============Program Start===========>");
-            string scIP = $"11{storeId[0]}.11";
+            string scIP = $"11{storeId[0]}.1{storeId.Substring(1, 2)}.1{storeId.Substring(3, 2)}.119";
             // check network of sc
+            AddListItemText($"Try to ping to {scIP}");
             bool networkStatus = await PingIp(scIP);
             if (!networkStatus)
             {
-                throw new Exception($"SC of {storeId} ping fails.");
+                throw new Exception($"SC of store {storeId} ping fails.");
             }
-            AddListItemText("Succeed ping to store 30002.");
-            // connect to database sc
+            AddListItemText($"Succeed pinging to store {storeId}.");
+            // check one click file
+            AddListItemText("Check one click file openstore*.pdf");
+            using (SqlConnection conn = new SqlConnection($@"Data Source={scIP}\SQLEXPRESS2008R2;Initial Catalog=SC_DB;Integrated Security=false;User ID=sa;Password=Admin2000;"))
+            {
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+                AddListItemText("Succeed connecting to SC_DB");
 
-            // check one click files
-            // run script transaction
+                // run script exchange rate
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    SqlCommand command = new SqlCommand($"SELECT * FROM T_EXCHANGE_RATE WHERE STORE_CD = '{storeId}' AND START_DT IN (SELECT MAX(START_DT) FROM T_EXCHANGE_RATE)", conn);
+                    SqlDataReader reader = command.ExecuteReader();
+                    try
+                    {
+                        while (reader.Read())
+                        {
+                            AddListItemText(reader[0] + ",  " + reader[1] + ",  " + reader[2] + ",  " + reader[3] + ",  " + reader[4] + ",  " + reader[5]);
+                        }
+                    }
+                    finally
+                    {
+                        reader.Close();
+                    }
+                }
+            }
+
             // run script promotion
             // run script for exchange rate
             // run script for exchange rate pos back
+
             // check network of pos
+            // check one click file
             // connect to database pos
             // run script for exchange rate pos front
+            AddListItemText("<==============Program End===========>");
             tbStore.Enabled = true;
             btnCheck.Enabled = true;
         }
 
         private void AddListItemText(string text)
         {
-            lbDebug.Items.Add($"{DateTime.Now:dd-MMM-yyyy}|{text}");
+            lbDebug.Items.Add($"{DateTime.Now:dd-MMM-yyyy}| {text}");
         }
 
         private async Task<bool> PingIp(string ip, int index = 0)
@@ -79,15 +109,5 @@ namespace Bettafish
             return prl.Status.ToString() == "Success";
         }
 
-        static void executeQuery(string query, SqlConnection conn)
-        {
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-        }
-
-        static string getConnection(string source, string db_name)
-        {
-            return $"Data Source={source};Initial Catalog=master;Integrated Security=true";
-        }
     }
 }
