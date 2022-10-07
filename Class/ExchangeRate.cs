@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bettafish.Class
 {
-    class ExchangeRate
+    public class ExchangeRate
     {
         public string Store_CD { get; set; }
         public string EX_From { get; set; }

@@ -1,6 +1,6 @@
 ﻿namespace Bettafish
 {
-    partial class Form1
+    partial class f1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f1));
+            this.gbMain = new System.Windows.Forms.GroupBox();
             this.btnCheck = new System.Windows.Forms.Button();
             this.lblStore = new System.Windows.Forms.Label();
             this.tbStore = new System.Windows.Forms.TextBox();
             this.lbDebug = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.btnSaveLog = new System.Windows.Forms.Button();
+            this.gbMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbMain
             // 
-            this.groupBox1.Controls.Add(this.btnCheck);
-            this.groupBox1.Controls.Add(this.lblStore);
-            this.groupBox1.Controls.Add(this.tbStore);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(518, 90);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Program Background";
+            this.gbMain.Controls.Add(this.btnCheck);
+            this.gbMain.Controls.Add(this.lblStore);
+            this.gbMain.Controls.Add(this.tbStore);
+            this.gbMain.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbMain.Location = new System.Drawing.Point(12, 12);
+            this.gbMain.Name = "gbMain";
+            this.gbMain.Size = new System.Drawing.Size(708, 83);
+            this.gbMain.TabIndex = 0;
+            this.gbMain.TabStop = false;
+            this.gbMain.Text = "Betta Fish: Checklist new opening store";
             // 
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(225, 33);
+            this.btnCheck.Location = new System.Drawing.Point(225, 34);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(103, 33);
             this.btnCheck.TabIndex = 2;
@@ -85,49 +85,50 @@
             // 
             this.lbDebug.FormattingEnabled = true;
             this.lbDebug.ItemHeight = 16;
-            this.lbDebug.Location = new System.Drawing.Point(12, 108);
+            this.lbDebug.Location = new System.Drawing.Point(12, 103);
             this.lbDebug.Name = "lbDebug";
-            this.lbDebug.Size = new System.Drawing.Size(518, 340);
+            this.lbDebug.Size = new System.Drawing.Size(708, 340);
             this.lbDebug.TabIndex = 1;
             // 
-            // button1
+            // btnSaveLog
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(237, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 30);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Save Log";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveLog.Enabled = false;
+            this.btnSaveLog.Location = new System.Drawing.Point(317, 454);
+            this.btnSaveLog.Name = "btnSaveLog";
+            this.btnSaveLog.Size = new System.Drawing.Size(98, 36);
+            this.btnSaveLog.TabIndex = 2;
+            this.btnSaveLog.Text = "Save Log";
+            this.btnSaveLog.UseVisualStyleBackColor = true;
+            this.btnSaveLog.Click += new System.EventHandler(this.btnSaveLog_Click);
             // 
-            // Form1
+            // f1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 496);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(732, 502);
+            this.Controls.Add(this.btnSaveLog);
             this.Controls.Add(this.lbDebug);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "f1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bettafish";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbMain.ResumeLayout(false);
+            this.gbMain.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbMain;
         private System.Windows.Forms.TextBox tbStore;
         private System.Windows.Forms.Label lblStore;
         private System.Windows.Forms.Button btnCheck;
         private System.Windows.Forms.ListBox lbDebug;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveLog;
     }
 }
 
