@@ -46,7 +46,7 @@
             this.gbMain.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMain.Location = new System.Drawing.Point(12, 12);
             this.gbMain.Name = "gbMain";
-            this.gbMain.Size = new System.Drawing.Size(708, 83);
+            this.gbMain.Size = new System.Drawing.Size(708, 85);
             this.gbMain.TabIndex = 0;
             this.gbMain.TabStop = false;
             this.gbMain.Text = "Betta Fish: Checklist new opening store";
@@ -54,7 +54,7 @@
             // btnCheck
             // 
             this.btnCheck.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheck.Location = new System.Drawing.Point(225, 34);
+            this.btnCheck.Location = new System.Drawing.Point(237, 34);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(103, 33);
             this.btnCheck.TabIndex = 2;
@@ -75,7 +75,7 @@
             // tbStore
             // 
             this.tbStore.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbStore.Location = new System.Drawing.Point(92, 37);
+            this.tbStore.Location = new System.Drawing.Point(104, 37);
             this.tbStore.MaxLength = 5;
             this.tbStore.Name = "tbStore";
             this.tbStore.Size = new System.Drawing.Size(125, 27);

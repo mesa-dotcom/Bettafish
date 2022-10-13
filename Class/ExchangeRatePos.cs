@@ -9,6 +9,7 @@ namespace Bettafish.Class
     public class ExchangeRatePos
     {
         public string Store_ID { get; set; }
+        public int? POS_No { get; set; }
         public string Source { get; set; }
         public string Destination { get; set; }
         public decimal Exchange_Rate { get; set; }

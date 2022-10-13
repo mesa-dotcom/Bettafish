@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Class\ExchangeRate.cs" />
     <Compile Include="Class\ExchangeRatePos.cs" />
+    <Compile Include="Class\StoreAsset.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
