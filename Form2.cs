@@ -19,18 +19,20 @@ namespace Bettafish
         public bool promo = false;
         public bool tranX = false;
         public bool target = false;
+        public bool shift = false;
         public List<ExchangeRate> exrSC = new List<ExchangeRate>();
         public List<ExchangeRatePos> exrPOSBack = new List<ExchangeRatePos>();
         public List<ExchangeRatePos> exrPOSFront = new List<ExchangeRatePos>();
         public int posAll = 0;
 
-        public f2(string storeId, bool oneClick, bool promo, bool tranX, bool target, List<ExchangeRate> exrSC, List<ExchangeRatePos> exrPOSBack, List<ExchangeRatePos> exrPOSFront, int posAll)
+        public f2(string storeId, bool oneClick, bool promo, bool tranX, bool target, bool shift, List<ExchangeRate> exrSC, List<ExchangeRatePos> exrPOSBack, List<ExchangeRatePos> exrPOSFront, int posAll)
         {
             this.storeId = storeId;
             this.oneClick = oneClick;
             this.promo = promo;
             this.tranX = tranX;
             this.target = target;
+            this.shift = shift;
             this.exrSC = exrSC;
             this.exrPOSBack = exrPOSBack;
             this.exrPOSFront = exrPOSFront;
@@ -49,10 +51,13 @@ namespace Bettafish
             cbTranX.ForeColor = tranX ? Color.Green : Color.Red;
             cbTarget.Checked = target;
             cbTarget.ForeColor = target ? Color.Green : Color.Red;
+            cbShift.Checked = shift;
+            cbShift.ForeColor = shift ? Color.Green : Color.Red;
             cbOneClick.AutoCheck = false;
             cbPromo.AutoCheck = false;
             cbTranX.AutoCheck = false;
             cbTarget.AutoCheck = false;
+            cbShift.AutoCheck = false;
 
             AddDataToDTSC();
             AddDataToDTPosBack();

@@ -60,6 +60,7 @@ namespace Bettafish
             bool promo = false;
             bool tranX = false;
             bool target = false;
+            bool shift = false;
             List<ExchangeRate> exrSC = new List<ExchangeRate>();
             List<ExchangeRatePos> exrPOSBack = new List<ExchangeRatePos>();
             Dictionary<StoreAsset, ExchangeRatePos> exrPOSFronts = new Dictionary<StoreAsset, ExchangeRatePos>();
@@ -200,6 +201,42 @@ namespace Bettafish
                 finally
                 {
                     rdr_target.Close();
+                }
+                AddListItemText("Query from table T_SHIFT_SUMMARY_MAST");
+                SqlCommand cmdShift = new SqlCommand("select top 1 * from T_SHIFT_SUMMARY_MAST order by BSNS_DT desc", conn);
+                SqlDataReader rdr_shift = cmdShift.ExecuteReader();
+                try
+                {
+                    while (rdr_shift.Read())
+                    {
+                        var txt = rdr_shift[0] + ",  " + rdr_shift[1] + ",  " + rdr_shift[2] + ",  " + rdr_shift[3] + ",  " + rdr_shift[4] + ",  " + rdr_shift[5];
+                        AddListItemText(txt);
+                    }
+                }
+                catch (Exception exc)
+                {
+                    throw new Exception("T_SHIFT_SUMMARY_MAST -> " + exc.Message);
+                }
+                finally
+                {
+                    rdr_shift.Close();
+                }
+                SqlCommand cmdShiftRes = new SqlCommand("use sc_db; select top 1 BSNS_DT from T_SHIFT_SUMMARY_MAST where SHIFT_NO = 3 and BSNS_DT in (select DATEADD(day, -1, cur_bsns_dt) from T_SYS_STATE) order by BSNS_DT desc", conn);
+                SqlDataReader rdr_shift_res = cmdShiftRes.ExecuteReader();
+                try
+                {
+                    if (rdr_shift_res.HasRows)
+                    {
+                        shift = true;
+                    }
+                }
+                catch (Exception exc)
+                {
+                    throw new Exception("T_SHIFT_SUMMARY_MAST RES->" + exc.Message);
+                }
+                finally
+                {
+                    rdr_shift_res.Close();
                 }
                 AddListItemText("Querying from table T_EXCHANGE_RATE latest START_DT");
                 SqlCommand cmdExRate = new SqlCommand($"SELECT * FROM T_EXCHANGE_RATE WHERE STORE_CD = '{storeId}' AND START_DT IN (SELECT MAX(START_DT) FROM T_EXCHANGE_RATE)", conn);
@@ -368,7 +405,7 @@ namespace Bettafish
             AddListItemText("<==============Program End===========>");
             tbStore.Enabled = true;
             btnCheck.Enabled = true;
-            f2 checklistForm = new f2(storeId, oneclick, promo, tranX, target, exrSC, exrPOSBack, exrPOSFront, exrPOSFronts.Keys.Count);
+            f2 checklistForm = new f2(storeId, oneclick, promo, tranX, target, shift, exrSC, exrPOSBack, exrPOSFront, exrPOSFronts.Keys.Count);
             checklistForm.ShowDialog();
         }
 

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(f2));
             this.gbResults = new System.Windows.Forms.GroupBox();
+            this.cbShift = new System.Windows.Forms.CheckBox();
+            this.cbTarget = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblExrPosFrontPass = new System.Windows.Forms.Label();
             this.lblExrPosFront = new System.Windows.Forms.Label();
@@ -46,7 +48,6 @@
             this.cbPromo = new System.Windows.Forms.CheckBox();
             this.cbOneClick = new System.Windows.Forms.CheckBox();
             this.btnSaveResult = new System.Windows.Forms.Button();
-            this.cbTarget = new System.Windows.Forms.CheckBox();
             this.gbResults.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExrPosFront)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // gbResults
             // 
+            this.gbResults.Controls.Add(this.cbShift);
             this.gbResults.Controls.Add(this.cbTarget);
             this.gbResults.Controls.Add(this.groupBox1);
             this.gbResults.Controls.Add(this.gbExrPosBack);
@@ -68,10 +70,32 @@
             this.gbResults.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbResults.Location = new System.Drawing.Point(9, 6);
             this.gbResults.Name = "gbResults";
-            this.gbResults.Size = new System.Drawing.Size(623, 742);
+            this.gbResults.Size = new System.Drawing.Size(623, 765);
             this.gbResults.TabIndex = 0;
             this.gbResults.TabStop = false;
             this.gbResults.Text = "Checklist Result";
+            // 
+            // cbShift
+            // 
+            this.cbShift.AutoSize = true;
+            this.cbShift.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbShift.Location = new System.Drawing.Point(6, 127);
+            this.cbShift.Name = "cbShift";
+            this.cbShift.Size = new System.Drawing.Size(392, 19);
+            this.cbShift.TabIndex = 7;
+            this.cbShift.Text = "T_SHIFT_SUMMARY MAST, One Day before opening date, shift 3";
+            this.cbShift.UseVisualStyleBackColor = true;
+            // 
+            // cbTarget
+            // 
+            this.cbTarget.AutoSize = true;
+            this.cbTarget.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTarget.Location = new System.Drawing.Point(6, 102);
+            this.cbTarget.Name = "cbTarget";
+            this.cbTarget.Size = new System.Drawing.Size(216, 19);
+            this.cbTarget.TabIndex = 6;
+            this.cbTarget.Text = "Has Target in SC_DB (T_TARGET)";
+            this.cbTarget.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -79,7 +103,7 @@
             this.groupBox1.Controls.Add(this.lblExrPosFront);
             this.groupBox1.Controls.Add(this.dtgvExrPosFront);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(6, 536);
+            this.groupBox1.Location = new System.Drawing.Point(6, 560);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(611, 198);
             this.groupBox1.TabIndex = 5;
@@ -126,7 +150,7 @@
             this.gbExrPosBack.Controls.Add(this.lblExrPosBack);
             this.gbExrPosBack.Controls.Add(this.dtgvExrPosBack);
             this.gbExrPosBack.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbExrPosBack.Location = new System.Drawing.Point(6, 329);
+            this.gbExrPosBack.Location = new System.Drawing.Point(6, 356);
             this.gbExrPosBack.Name = "gbExrPosBack";
             this.gbExrPosBack.Size = new System.Drawing.Size(611, 198);
             this.gbExrPosBack.TabIndex = 4;
@@ -173,7 +197,7 @@
             this.gbExSC.Controls.Add(this.lblExrExpect);
             this.gbExSC.Controls.Add(this.dtgvExrSC);
             this.gbExSC.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbExSC.Location = new System.Drawing.Point(6, 126);
+            this.gbExSC.Location = new System.Drawing.Point(6, 152);
             this.gbExSC.Name = "gbExSC";
             this.gbExSC.Size = new System.Drawing.Size(611, 198);
             this.gbExSC.TabIndex = 3;
@@ -249,7 +273,7 @@
             // 
             // btnSaveResult
             // 
-            this.btnSaveResult.Location = new System.Drawing.Point(254, 754);
+            this.btnSaveResult.Location = new System.Drawing.Point(255, 777);
             this.btnSaveResult.Name = "btnSaveResult";
             this.btnSaveResult.Size = new System.Drawing.Size(112, 31);
             this.btnSaveResult.TabIndex = 1;
@@ -257,22 +281,11 @@
             this.btnSaveResult.UseVisualStyleBackColor = true;
             this.btnSaveResult.Click += new System.EventHandler(this.btnSaveResult_Click);
             // 
-            // cbTarget
-            // 
-            this.cbTarget.AutoSize = true;
-            this.cbTarget.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTarget.Location = new System.Drawing.Point(6, 102);
-            this.cbTarget.Name = "cbTarget";
-            this.cbTarget.Size = new System.Drawing.Size(216, 19);
-            this.cbTarget.TabIndex = 6;
-            this.cbTarget.Text = "Has Target in SC_DB (T_TARGET)";
-            this.cbTarget.UseVisualStyleBackColor = true;
-            // 
             // f2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 797);
+            this.ClientSize = new System.Drawing.Size(641, 815);
             this.Controls.Add(this.btnSaveResult);
             this.Controls.Add(this.gbResults);
             this.ForeColor = System.Drawing.Color.Black;
@@ -318,5 +331,6 @@
         private System.Windows.Forms.DataGridView dtgvExrPosFront;
         private System.Windows.Forms.Button btnSaveResult;
         private System.Windows.Forms.CheckBox cbTarget;
+        private System.Windows.Forms.CheckBox cbShift;
     }
 }
